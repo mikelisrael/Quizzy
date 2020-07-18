@@ -1,0 +1,257 @@
+@font-face {
+    font-family: 'Lelushka';
+    src: url(../fonts/Lelushka_Personal_use.otf);
+}
+
+@font-face {
+    font-family: 'Century Gothic';
+    src: url(../fonts/GOTHIC.ttf);
+}
+
+html, body {
+	margin:0;
+	border:0;
+	padding:0;
+	font-size:17px;
+	font-family:'Century Gothic';
+	overflow-x:hidden;
+    position: relative;
+    background: url('../img/backgroundDisplay.png');
+    background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+    display: table;
+    width: 100%;
+}
+
+
+body #displayBoard{
+    /* background-color: #fafafa;    */
+    width: 1000px;
+    height:500px;
+    border-radius: 30px;
+    box-shadow:0 0px 30px rgba(0, 0, 0, 0.301);
+    color:#2d6db7;
+    display: table-cell;
+    background-image: url('../img/choose.png');
+    background-size: cover;
+    background-position: center;
+    filter: blur(100%);
+}
+
+.display_animate{
+    animation: moveLeft 1s linear;
+    -webkit-animation: moveUp 1s linear;
+    display:none
+}
+
+@keyframes moveUp {
+    0%{
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    };
+}
+
+@-webkit-keyframes moveUp {
+    0%{
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    };
+}
+
+h2{letter-spacing: 1px;}
+
+.title{
+    font-family: Lelushka;
+    font-size: 100px;
+    color: #83039c;
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.014);
+
+}
+
+.title span{color:#2d6db7}
+
+.title2 { 
+    font-family: Lelushka;
+    font-size: 200%;
+    color: #83039c;
+}
+
+.title2 span{color:#2d6db7}
+
+.select {
+    font-family: lelushka;
+    font-size: 400%;
+    text-align: left;
+}
+
+.question{
+    margin: 30px
+}
+
+.answers{
+    margin: 10px
+}
+
+.slide{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  .active-slide{
+    opacity: 1;
+    z-index: 2;
+  }
+  .quiz-container{
+    position: relative;
+    height: 200px;
+    margin-top: 40px;
+    font-size: 130%;
+    font-weight: bolder;
+  }
+
+  button{
+    width:  25%;
+    height: 60px;
+    padding: 15px 40px;
+    font-size: 101%;
+	border-radius: 20px;
+	background: #2d6db7;
+	color: var(-white);
+    font-family: century gothic;
+	cursor: pointer;
+	position: relative;
+	transition: all 0.6s ease;
+	z-index: 1;
+	overflow: hidden;
+	outline: none;
+    box-shadow:0px 5px 5px rgba(0, 0, 0, 0.151);
+  }
+
+  button:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -10%;
+	width: 0;
+	height: 120%;
+	background: #83039c;
+	z-index: -1;
+	transition: all 0.6s ease;
+	transform: skewX(10deg);
+}
+
+button:hover {
+	color: white;
+	background-color: #ffffff;
+}
+
+button:hover:before {
+	width: 120%;
+} 
+
+@media(max-width:768px) {
+  button{
+    margin-top: 30px;
+    padding: 5px 1px;
+  }
+}
+
+.countdown_active{
+    margin: 23% auto;
+    font-size: 200%;
+    font-weight: bolder;
+}
+
+@media(max-width:768px) {
+  .countdown_active{
+    padding-top: 150px;
+  }
+}
+
+#countdown{
+    color: red;
+}
+
+.countdown_display{
+    display: none;
+}
+
+ /* Customize the label (the container) */
+.container {
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0 10px;
+  height: 25px;
+  width: 25px;
+  background-color: rgb(165, 153, 153);
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
